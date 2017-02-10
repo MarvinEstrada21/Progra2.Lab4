@@ -29,14 +29,21 @@ public class Dragon extends Pieza {
     public void Mover(String x[][], int fila, int col, int fila2, int col2) {
         for (int i = 0; i < x.length; i++) {
             for (int j = 0; j < x.length; j++) {
-                if ((i == fila2 && j == col2) && (i >= 0 && j >= 0 || i < x.length - 1 && j == x.length - 1)){
+                if ((i == fila2 && j == col2))/* && (i >= 0 && j >= 0 || i < x.length - 1 && j == x.length - 1))*/{
                     x[i][j] = x[fila][col];
                     x[fila][col] = "   ";
+                    for (int k = 0; k < fila2; k++) {
+                        for (int l = 0; l < col2; l++) {
+                            if (x[fila + 1][col + 1].contains("N")){
+                                x[k][l] = "   ";
+                            }
+                        }
+                    }
                 }
             }
         }
     }
 
-    public void Comer(int x[][]) {
-    }
+    //public void Comer(String x[][], int fila, int col, int fila2, int col2) {
+    //}
 }

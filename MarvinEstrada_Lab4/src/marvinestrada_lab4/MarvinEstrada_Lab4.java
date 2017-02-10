@@ -61,11 +61,15 @@ public class MarvinEstrada_Lab4 {
                         if (cont % 2 == 0) {
                             subopcion = JOptionPane.showInputDialog("Jugador Blanco, ingrese el nombre de la piesa que desea mover");
                             if (subopcion.equalsIgnoreCase("arquero")) {
-                                int fila = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la fila de la primer coordenada"));
-                                int col = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la columna de la primer coordenada"));
-                                int fila2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la fila de la segunda coordenada"));
-                                int col2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la columna de la segunda coordenada"));
-                                ar.Mover(tablero, fila, col, fila2, col2);
+                                try {
+                                    int fila = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la fila de la primer coordenada"));
+                                    int col = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la columna de la primer coordenada"));
+                                    int fila2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la fila de la segunda coordenada"));
+                                    int col2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la columna de la segunda coordenada"));
+                                    ar.Mover(tablero, fila, col, fila2, col2);
+                                } catch (Exception e) {
+                                    JOptionPane.showMessageDialog(null, "No debe ingresar coordenadas fuera de el tablero");
+                                }
                             }
                             if (subopcion.equalsIgnoreCase("dragon")) {
                                 int fila = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la fila de la primer coordenada"));
