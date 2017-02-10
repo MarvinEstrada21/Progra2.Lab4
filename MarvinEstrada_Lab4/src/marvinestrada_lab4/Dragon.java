@@ -33,7 +33,6 @@ public class Dragon extends Pieza {
                     x[i][j] = x[fila][col];
                     x[fila][col] = "   ";
                 }
-                
             }
         }
     }
