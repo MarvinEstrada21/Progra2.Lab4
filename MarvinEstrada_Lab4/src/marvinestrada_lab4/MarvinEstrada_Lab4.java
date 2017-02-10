@@ -14,6 +14,7 @@ public class MarvinEstrada_Lab4 {
     
     public static void main(String[] args) {
         Dragon dr = new Dragon();
+        Arquero ar = new Arquero();
         String opcion = "";
         while (!opcion.equals("3")){
             opcion = JOptionPane.showInputDialog("JUEGO\n"
@@ -50,14 +51,40 @@ public class MarvinEstrada_Lab4 {
                 }
             }
             if (opcion.equals("2")){
+                String subopcion;
                 String[][] tablero = new String[10][10];
                 System.out.println(Print(Piezas(tablero)));
-                int fila = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la fila de la primer coordenada"));
-                int col = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la columna de la primer coordenada"));
-                int fila2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la fila de la segunda coordenada"));
-                int col2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la columna de la segunda coordenada"));
-                dr.Mover(tablero, fila, col, fila2, col2);
-                System.out.println(Print(tablero));
+                int cont = 0;
+                while (cont < 50){
+                    subopcion = JOptionPane.showInputDialog("Ingrese el nombre de la piesa que desea mover");
+                    if (cont % 2 == 0){
+                        if (subopcion.equalsIgnoreCase("arquero")){
+                            int fila = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la fila de la primer coordenada"));
+                            int col = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la columna de la primer coordenada"));
+                            int fila2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la fila de la segunda coordenada"));
+                            int col2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la columna de la segunda coordenada"));
+                            ar.Mover(tablero, fila, col, fila2, col2);
+                        }
+                        if (subopcion.equalsIgnoreCase("dragon")){
+                            int fila = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la fila de la primer coordenada"));
+                            int col = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la columna de la primer coordenada"));
+                            int fila2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la fila de la segunda coordenada"));
+                            int col2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la columna de la segunda coordenada"));
+                            dr.Mover(tablero, fila, col, fila2, col2);
+                        }
+                    }
+                    else {
+                        if (subopcion.equalsIgnoreCase("arquero")){
+                            int fila = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la fila de la primer coordenada"));
+                            int col = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la columna de la primer coordenada"));
+                            int fila2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la fila de la segunda coordenada"));
+                            int col2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la columna de la segunda coordenada"));
+                            ar.Mover(tablero, fila, col, fila2, col2);
+                        }
+                    }
+                    System.out.println(Print(tablero));
+                    cont ++;
+                }
             }
         }
     }
