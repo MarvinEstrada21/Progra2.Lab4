@@ -14,10 +14,11 @@ public class MarvinEstrada_Lab4 {
     
     public static void main(String[] args) {
         String opcion = "";
-        while (!opcion.equals("5")){
+        while (!opcion.equals("3")){
             opcion = JOptionPane.showInputDialog("JUEGO\n"
                     + "1. Jugadores\n"
-                    + "2. Juego\n");
+                    + "2. Juego\n"
+                    + "3. Salir");
             if (opcion.equals("1")){
                 String subopcion;
                 subopcion = JOptionPane.showInputDialog("JUGADORES\n"
@@ -48,8 +49,78 @@ public class MarvinEstrada_Lab4 {
                 }
             }
             if (opcion.equals("2")){
-                
+                String[][] tablero = new String[10][10];
+                System.out.println(Print(Piezas(tablero)));
             }
         }
+    }
+    public static String Print(String[][]t){
+        String c = "";
+        for (int i = 0; i < t.length; i++) {
+            for (int j = 0; j < t[i].length; j++) {
+                c = c + "[ "+t[i][j] + " ]";
+            }//Fin for
+            c+="\n";
+        }//Fin for
+        return c;
+    }//Fin del metodo Print
+
+    public static String[][] Piezas (String[][] x){
+        String a = "";
+        for (int i = 0; i < x.length; i++) {
+            for (int j = 0; j < x[i].length; j++) {
+                if (i == 0 && (j == 0 || j == x.length - 1))
+                    x[i][j] = "C-B";
+                else if (i == 0 && (j == 2 || j == x.length - 3))
+                    x[i][j] = "F-B";
+                else if (i == 0 && (j == 3 || j == x.length - 4))
+                    x[i][j] = "A-B";
+                else if (i == 0 && j == 4)
+                    x[i][j] = "R-B";
+                else if (i == 0 && j == 5)
+                    x[i][j] = "M-B";
+                else if (i == 1){
+                    if (j == 0 || j == 3 || j == x.length - 4 || j == x.length - 1)
+                        x[i][j] = "D-B";
+                    else if (j == 2 || j == x.length - 3)
+                        x[i][j] = "A-B";
+                    else if (j == 4)
+                        x[i][j] = "C-B";
+                    else if (j == 5)
+                        x[i][j] = "F-B";
+                    else
+                        x[i][j] = "   ";
+                }
+                else if (i == x.length - 1){
+                    if (j == 0 || j == x.length - 1)
+                        x[i][j] = "C-N";
+                    else if (j == 2 || j == x.length - 3)
+                        x[i][j] = "F-N";
+                    else if (j == 3 || j == x.length - 4)
+                        x[i][j] = "A-N";
+                    else if (j == 4)
+                        x[i][j] = "M-N";
+                    else if (j == 5)
+                        x[i][j] = "R-N";
+                    else 
+                        x[i][j] = "   ";
+                }
+                else if (i == x.length - 2){
+                    if (j == 0 || j == 3 || j == x.length - 4 || j == x.length - 1)
+                        x[i][j] = "D-N";
+                    else if (j == 2 || j == x.length - 3)
+                        x[i][j] = "A-N";
+                    else if (j == 4)
+                        x[i][j] = "F-N";
+                    else if (j == 5)
+                        x[i][j] = "C-N";
+                    else 
+                        x[i][j] = "   ";
+                }
+                else
+                    x[i][j] = "   ";
+            }
+        }
+        return x;
     }
 }
