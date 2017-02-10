@@ -27,12 +27,7 @@ public class Duendes extends Pieza {
     }
 
     @Override
-    public void Mover() {
+    public void Mover(String x[][], int fila, int col, int fila2, int col2) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public void Comer() {
-    }
-
 }

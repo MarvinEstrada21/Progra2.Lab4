@@ -13,6 +13,7 @@ public class MarvinEstrada_Lab4 {
     private static ArrayList lista = new ArrayList();
     
     public static void main(String[] args) {
+        Dragon dr = new Dragon();
         String opcion = "";
         while (!opcion.equals("3")){
             opcion = JOptionPane.showInputDialog("JUEGO\n"
@@ -51,6 +52,12 @@ public class MarvinEstrada_Lab4 {
             if (opcion.equals("2")){
                 String[][] tablero = new String[10][10];
                 System.out.println(Print(Piezas(tablero)));
+                int fila = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la fila de la primer coordenada"));
+                int col = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la columna de la primer coordenada"));
+                int fila2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la fila de la segunda coordenada"));
+                int col2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la columna de la segunda coordenada"));
+                dr.Mover(tablero, fila, col, fila2, col2);
+                System.out.println(Print(tablero));
             }
         }
     }

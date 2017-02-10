@@ -26,13 +26,18 @@ public class Dragon extends Pieza {
     }
 
     @Override
-    public void Mover() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void Mover(String x[][], int fila, int col, int fila2, int col2) {
+        for (int i = 0; i < x.length; i++) {
+            for (int j = 0; j < x.length; j++) {
+                if ((i == fila2 && j == col2) && (i >= 0 && j >= 0 || i < x.length - 1 && j == x.length - 1)){
+                    x[i][j] = x[fila][col];
+                    x[fila][col] = "   ";
+                }
+                
+            }
+        }
     }
 
-    @Override
-    public void Comer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void Comer(int x[][]) {
     }
-
 }

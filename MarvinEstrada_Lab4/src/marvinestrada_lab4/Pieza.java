@@ -35,8 +35,6 @@ public abstract class Pieza {
         return "Pieza{" + "color=" + color + '}';
     }
 
-    public abstract void Mover();
-
-    public abstract void Comer();
+    public abstract void Mover(String x[][], int fila, int col, int fila2, int col2);
 
 }
