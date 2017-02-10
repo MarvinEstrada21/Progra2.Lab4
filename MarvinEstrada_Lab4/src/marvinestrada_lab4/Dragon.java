@@ -34,7 +34,7 @@ public class Dragon extends Pieza {
                     x[fila][col] = "   ";
                     for (int k = 0; k < fila2; k++) {
                         for (int l = 0; l < col2; l++) {
-                            if (x[fila + 1][col + 1].contains("N")){
+                            if (x[fila][col].contains("N")){
                                 x[k][l] = "   ";
                             }
                         }
